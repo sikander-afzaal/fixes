@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer {
+  @import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.preserve {
+  position: relative;
+}
+.preserve img {
+  transform: rotateY(0deg);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+}
+.preserve .back {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(-180deg);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+  background-color: black;
+  color: white;
+  z-index: 2;
+}
+.preserve:hover > img {
+  transform: rotateX(180deg);
+}
+
+.preserve:hover > .back {
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+.booking {
+  background-color: rgb(93, 79, 255);
+  color: white;
+  width: 70%;
+  height: 45px;
+  text-decoration: none;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
