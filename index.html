@@ -87,17 +87,17 @@
         <div class="w-5/12 mx-auto">
           <ul class="Tabs flex justify-evenly gap-4 flex-wrap">
             <li
-              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " id="default" onclick="showTabData(event,'All')"
+              class="active-tab text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " id="default" onclick="changeTabs(event,'All')"
             >
               All
             </li>
             <li
-              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="showTabData(event,'Japanese')"
+              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="changeTabs(event,'Japanese')"
             >
               Japanese
             </li>
             <li
-              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="showTabData(event,'Lettering')"
+              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="changeTabs(event,'Lettering')"
             >
            
 
@@ -105,61 +105,26 @@
          
             </li>
             <li
-              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="showTabData(event,'Realism')"
+              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="changeTabs(event,'Realism')"
             >
               Realism
             </li>
             <li
-              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="showTabData(event,'Script')"
+              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="changeTabs(event,'Script')"
             >
               Script
             </li>
             <li
-              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="showTabData(event,'Traditional')"
+              class="text-[#3f7298] font-semibold cursor-pointer hover:text-[#ff5c35] " onclick="changeTabs(event,'Traditional')"
             >
               Traditional
             </li>
-            <li class="text-[#3f7298] font-semibold cursor-pointer " onclick="showTabData(event,'Tribal')">Tribal</li>
+            <li class="text-[#3f7298] font-semibold cursor-pointer " onclick="changeTabs(event,'Tribal')">Tribal</li>
           </ul>
         </div>
-        <div class="Tab_content max-w-[90%] mt-[40px] mx-auto px-2 flex justify-evenly flex-wrap gap-x-7 gap-y-10 h-full">
-          <div class="w-84 Tab_content_section All">
-            <div class="preserve w-[349px] h-[200px]">
-              <div class="back">
-                <button href="#" class="booking">Book Your Appointment</button>
-              </div>
-              <img src="./Images/Tab_image.png" altclass="w-full object-cover h-full" />
-            </div>
-            <div class="mt-3">
-              <h3
-                class="text-white font-yellowtail font-semibold text-4xl italic text-center"
-              >
-                Nose
-              </h3>
-              <p class="text-center text-[#5a5a5a]">
-                Regular $50 / Special $55-$60
-              </p>
-            </div>
-          </div>
-          <div class="w-84 Tab_content_section" id="Japanese">
-             <div class="preserve w-[349px] h-[200px]">
-              <div class="back">
-                <button href="#" class="booking">Book Your Appointment</button>
-              </div>
-              <img src="./Images/p2.jpg" alt="" class="w-full h-full object-cover"/>
-            </div>
-            <div class="mt-3">
-              <h3
-                class="text-white font-yellowtail font-semibold text-4xl italic text-center"
-              >
-                Industrial
-              </h3>
-              <p class="text-center text-[#5a5a5a]">
-                Regular $50 / Special $55-$60
-              </p>
-            </div>
-          </div>
-          <div class="w-84 Tab_content_section " id="Lettering">
+        <div class="Tab_content max-w-[90%] mt-[40px] mx-auto px-2 grid md:grid-cols-1  xl:grid-cols-2 grid-cols-3 auto-rows-fr place-items-center gap-x-7 gap-y-10 h-full">
+     
+          <div class="w-84 Tab_content_section " >
              <div class="preserve w-[349px] h-[200px]">
               <div class="back">
                 <button href="#" class="booking">Book Your Appointment</button>
@@ -177,7 +142,7 @@
               </p>
             </div>
           </div>
-          <div class="w-84 Tab_content_section" id="Realism">
+          <div class="w-84 Tab_content_section" >
              <div class="preserve w-[349px] h-[200px]">
               <div class="back">
                 <button href="#" class="booking">Book Your Appointment</button>
@@ -195,7 +160,7 @@
               </p>
             </div>
           </div>
-          <div class="w-84 Tab_content_section " id="Script">
+          <div class="w-84 Tab_content_section " >
              <div class="preserve w-[349px] h-[200px]">
               <div class="back">
                 <button href="#" class="booking">Book Your Appointment</button>
@@ -213,7 +178,7 @@
               </p>
             </div>
           </div>
-          <div class="w-84 Tab_content_section " id="Traditional">
+          <div class="w-84 Tab_content_section " >
              <div class="preserve w-[349px] h-[200px]">
               <div class="back">
                 <button href="#" class="booking">Book Your Appointment</button>
@@ -231,7 +196,7 @@
               </p>
             </div>
           </div>
-          <div class="w-84 Tab_content_section " id="Tribal">
+          <div class="w-84 Tab_content_section " >
              <div class="preserve w-[349px] h-[200px]">
               <div class="back">
                 <button href="#" class="booking">Book Your Appointment</button>
@@ -382,30 +347,87 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
-
 document.getElementById("default").click();
-
-function showTabData(evt, tabname) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("w-84");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.querySelectorAll("ul li");
-
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace("text-[#ff5c35]", "");
-  }
-  evt.currentTarget.className += "text-[#ff5c35]";
-  if (tabname == "All") {
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "block";
-    }
-    return;
-  }
-  document.getElementById(tabname).style.display = "block";
+const tabData = {
+all:[{img:"./Images/p3.jpg",name:"Daith",regular:"$50",special:"$55-$60"},
+{img:"./Images/p4.jpg",name:"Rook",regular:"$50",special:"$55-$60"},
+{img:"./Images/p5.jpg",name:"Helix",regular:"$50",special:"$55-$60"},
+{img:"./Images/p6.jpg",name:"Cartlidge",regular:"$50",special:"$55-$60"},
+{img:"./Images/p7.jpg",name:"Septum",regular:"$50",special:"$55-$60"},
+{img:"./Images/p8.jpg",name:"Belly",regular:"$50",special:"$55-$60"}],
+japanese:[{img:"./Images/p3.jpg",name:"Daith",regular:"$50",special:"$55-$60"},
+{img:"./Images/p4.jpg",name:"Rook",regular:"$50",special:"$55-$60"},
+{img:"./Images/p5.jpg",name:"Helix",regular:"$50",special:"$55-$60"},
+{img:"./Images/p6.jpg",name:"Cartlidge",regular:"$50",special:"$55-$60"},
+{img:"./Images/p7.jpg",name:"Septum",regular:"$50",special:"$55-$60"},
+{img:"./Images/p8.jpg",name:"Belly",regular:"$50",special:"$55-$60"}],
+lettering:[{img:"./Images/p3.jpg",name:"Daith",regular:"$50",special:"$55-$60"},
+{img:"./Images/p4.jpg",name:"Rook",regular:"$50",special:"$55-$60"},
+{img:"./Images/p5.jpg",name:"Helix",regular:"$50",special:"$55-$60"},
+{img:"./Images/p6.jpg",name:"Cartlidge",regular:"$50",special:"$55-$60"},
+{img:"./Images/p7.jpg",name:"Septum",regular:"$50",special:"$55-$60"},
+{img:"./Images/p8.jpg",name:"Belly",regular:"$50",special:"$55-$60"}],
+realism:[{img:"./Images/p3.jpg",name:"Daith",regular:"$50",special:"$55-$60"},
+{img:"./Images/p4.jpg",name:"Rook",regular:"$50",special:"$55-$60"},
+{img:"./Images/p5.jpg",name:"Helix",regular:"$50",special:"$55-$60"},
+{img:"./Images/p6.jpg",name:"Cartlidge",regular:"$50",special:"$55-$60"},
+{img:"./Images/p7.jpg",name:"Septum",regular:"$50",special:"$55-$60"},
+{img:"./Images/p8.jpg",name:"Belly",regular:"$50",special:"$55-$60"}],
+script:[{img:"./Images/p3.jpg",name:"Daith",regular:"$50",special:"$55-$60"},
+{img:"./Images/p4.jpg",name:"Rook",regular:"$50",special:"$55-$60"},
+{img:"./Images/p5.jpg",name:"Helix",regular:"$50",special:"$55-$60"},
+{img:"./Images/p6.jpg",name:"Cartlidge",regular:"$50",special:"$55-$60"},
+{img:"./Images/p7.jpg",name:"Septum",regular:"$50",special:"$55-$60"},
+{img:"./Images/p8.jpg",name:"Belly",regular:"$50",special:"$55-$60"}],
+traditional:[{img:"./Images/p3.jpg",name:"Daith",regular:"$50",special:"$55-$60"},
+{img:"./Images/p4.jpg",name:"Rook",regular:"$50",special:"$55-$60"},
+{img:"./Images/p5.jpg",name:"Helix",regular:"$50",special:"$55-$60"},
+{img:"./Images/p6.jpg",name:"Cartlidge",regular:"$50",special:"$55-$60"},
+{img:"./Images/p7.jpg",name:"Septum",regular:"$50",special:"$55-$60"},
+{img:"./Images/p8.jpg",name:"Belly",regular:"$50",special:"$55-$60"}],
+tribal:[{img:"./Images/p3.jpg",name:"Daith",regular:"$50",special:"$55-$60"},
+{img:"./Images/p4.jpg",name:"Rook",regular:"$50",special:"$55-$60"},
+{img:"./Images/p5.jpg",name:"Helix",regular:"$50",special:"$55-$60"},
+{img:"./Images/p6.jpg",name:"Cartlidge",regular:"$50",special:"$55-$60"},
+{img:"./Images/p7.jpg",name:"Septum",regular:"$50",special:"$55-$60"},
+{img:"./Images/p8.jpg",name:"Belly",regular:"$50",special:"$55-$60"}],
 }
-
+const  changeTabs = (e,tabname) => {
+  
+ document.querySelector(".active-tab").classList.remove("active-tab")
+ e.target.classList.add("active-tab")
+const mainDiv = document.querySelector(".Tab_content")
+mainDiv.innerHTML = ""
+tabData[tabname.toLowerCase()].forEach(elem => {
+  const parentDiv = document.createElement("div")
+  const imgDiv = document.createElement("div")
+  const backSide = document.createElement("div")
+  const bookBtn = document.createElement("button")
+  const img = document.createElement("img")
+  const bottomDiv = document.createElement("div")
+  const name = document.createElement("h3")
+  const price = document.createElement("p")
+price.className = "text-center text-[#5a5a5a]"
+  name.className = "text-white font-yellowtail font-semibold text-4xl italic text-center"
+  bottomDiv.className = "mt-3"
+  img.className = "w-full object-cover h-full"
+  img.src = elem.img
+  bookBtn.className = "booking"
+  backSide.className = "back"
+  imgDiv.className = "preserve w-[349px] h-[200px]"
+  parentDiv.className = "w-84 Tab_content_section"
+  name.innerText = elem.name
+  price.innerText = `Regular ${elem.regular} / Special ${elem.special}`
+  backSide.appendChild(bookBtn)
+  imgDiv.appendChild(backSide)
+  imgDiv.appendChild(img)
+  bottomDiv.appendChild(name)
+  bottomDiv.appendChild(price)
+  parentDiv.appendChild(imgDiv)
+  parentDiv.appendChild(bottomDiv)
+  mainDiv.appendChild(parentDiv)
+})
+}
     </script>
   </body>
 </html>
