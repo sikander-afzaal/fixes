@@ -17,7 +17,7 @@ for (i = 0; i < acc.length; i++) {
       btn.innerHTML = "-";
       btn.style.background = "rgb(93, 79, 255)";
       btn.style.color = "white";
-      faq_content.style.maxHeight = "1000px";
+      faq_content.style.maxHeight = faq_content.scrollHeight + "px";
     }
   });
 }
