@@ -15,7 +15,7 @@
 .preserve img {
   transform: rotateY(0deg);
   transition-timing-function: ease-in-out;
-  transition-duration: 0.5s;
+  transition-duration: 0.8s;
   transition-property: transform, opacity;
 }
 
@@ -32,7 +32,7 @@
   z-index: -1;
   transform: rotateX(-180deg);
   transition-timing-function: ease-in-out;
-  transition-duration: 0.5s;
+  transition-duration: 0.8s;
   transition-property: transform, opacity;
   background-color: black;
   color: white;
